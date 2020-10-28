@@ -26,13 +26,23 @@ while (arrayNumeri16.length < array16) {
 
 console.log(arrayNumeri16);
 
-//l'untente inserisce un numero alla volta (da 1 a 100) finchè non perder. I numeri inseriti non possono ripetersi
-
+//l'untente inserisce un numero alla volta (da 1 a 100) finchè non perde. I numeri inseriti non possono ripetersi
+//84 sono i numeri non ancora scelti, in questo caso l'utente indovina gli 84 numeri vince la partita
+for (var i = 0; arrayNumeriUser.length < 84; i++) {
+  numeriUser = parseInt(prompt("Inserisci un numero"));
+  //il numero inserito non può ripetersi, non può essere minore di 1 o maggiore di 100
+  while (arrayNumeriUser.includes(numeriUser) || (numeriUser < 1) || (numeriUser > 100)) {
+    alert("Attenzione! Scrivi un numero corretto");
+    numeriUser = parseInt(prompt("Inserisci un numero"));
+  }
+  arrayNumeriUser.push(numeriUser);
+  console.log("I numeri che l'utente ha inserito sono: ", arrayNumeriUser);
+}
 
 //chi ha vinto?
 
 
-/****************************FUNZIONI PER L'OUTPUT*******************************/
+/*******************FUNZIONI PER L'OUTPUT*******************************/
 
 //FUNZIONE PER GENERARE NUMERI RANDOM
 function numeroRangomGen(min, max) {
