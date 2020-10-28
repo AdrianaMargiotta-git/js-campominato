@@ -14,6 +14,7 @@ var arrayNumeri16 = []; //lista delle bombe
 var array16 = 16; //numeri random unici che il computer deve generare
 var numeriUser = []; //numeri che l'utente ha scelto
 var arrayNumeriUser = []; //lista numeri che l'utente ha scelto
+var punteggio = arrayNumeriUser.length; //tentativi che l'utente ha effettuato
 
 //genero i 16 numeri random unici da 1 a 100
 while (arrayNumeri16.length < array16) {
@@ -36,17 +37,21 @@ for (var i = 0; arrayNumeriUser.length < 84; i++) {
     numeriUser = parseInt(prompt("Inserisci un numero"));
   }
   arrayNumeriUser.push(numeriUser);
+
   console.log("I numeri che l'utente ha inserito sono: ", arrayNumeriUser);
+    //chi ha vinto?
   if (arrayNumeri16.includes(numeriUser)) {
     console.log("Hai preso una bomba, hai perso!");
     alert("Hai preso una bomba, hai perso!");
+    //mostra all'utente i tentativi che ha effettuato
+    console.log("Hai ottenuto: ", punteggio, "punti");
     break;
   } else if (! arrayNumeri16.includes(numeroComputer)) {
     numeriUser = parseInt(prompt("Inserisci un numero"));
   }
 }
 
-//chi ha vinto?
+//mostare il punteggio
 
 
 /*******************FUNZIONI PER L'OUTPUT*******************************/
