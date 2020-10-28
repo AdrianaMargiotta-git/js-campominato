@@ -37,6 +37,13 @@ for (var i = 0; arrayNumeriUser.length < 84; i++) {
   }
   arrayNumeriUser.push(numeriUser);
   console.log("I numeri che l'utente ha inserito sono: ", arrayNumeriUser);
+  if (arrayNumeri16.includes(numeriUser)) {
+    console.log("Hai preso una bomba, hai perso!");
+    alert("Hai preso una bomba, hai perso!");
+    break;
+  } else if (! arrayNumeri16.includes(numeroComputer)) {
+    numeriUser = parseInt(prompt("Inserisci un numero"));
+  }
 }
 
 //chi ha vinto?
