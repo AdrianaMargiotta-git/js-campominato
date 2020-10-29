@@ -82,13 +82,9 @@ if (difficolta == "0") {
     numeriUser = parseInt(prompt("Inserisci un numero"));
     if (arrayNumeriUser.includes(numeriUser) || (numeriUser < 1) || (numeriUser > 100)) {
       alert("Attenzione! Scrivi un numero corretto");
-      //numeriUser = parseInt(prompt("Inserisci un numero"));
-      //i--;
     } else if (arrayNumeri16.includes(numeriUser)){
       console.log("Hai preso una bomba, hai perso!");
       alert("Hai preso una bomba, hai perso!");
-      //tolgo dalla lista dei numeri utente il numero corrispodendente alla bomba
-      //punteggio -= 1; //perchè faccio push dopo
       //mostra all'utente i tentativi che ha effettuato, quindi il punteggio
       console.log("Hai ottenuto: ", punteggio, "punti");
       alert("Hai ottenuto: " + punteggio + "punti");
@@ -99,19 +95,47 @@ if (difficolta == "0") {
     }
   }
 
-} else if (//difficolta 1) {
+} else if (difficolta == "1") {
+  for (var i = 0; arrayNumeriUser.length < 64; i++) {
+    numeriUser = parseInt(prompt("Inserisci un numero"));
+    if (arrayNumeriUser.includes(numeriUser) || (numeriUser < 1) || (numeriUser > 80)) {
+      alert("Attenzione! Scrivi un numero corretto");
+    } else if (arrayNumeri16.includes(numeriUser)){
+      console.log("Hai preso una bomba, hai perso!");
+      alert("Hai preso una bomba, hai perso!");
+      //mostra all'utente i tentativi che ha effettuato, quindi il punteggio
+      console.log("Hai ottenuto: ", punteggio, "punti");
+      alert("Hai ottenuto: " + punteggio + "punti");
+      break;
+    } else {
+      arrayNumeriUser.push(numeriUser);
+      punteggio += 1;
+    }
+  }
 
-} else if (//difficolta 2) {
+} else if (difficolta == "2") {
+  for (var i = 0; arrayNumeriUser.length < 34; i++) {
+    numeriUser = parseInt(prompt("Inserisci un numero"));
+    if (arrayNumeriUser.includes(numeriUser) || (numeriUser < 1) || (numeriUser > 50)) {
+      alert("Attenzione! Scrivi un numero corretto");
+    } else if (arrayNumeri16.includes(numeriUser)){
+      console.log("Hai preso una bomba, hai perso!");
+      alert("Hai preso una bomba, hai perso!");
+      //mostra all'utente i tentativi che ha effettuato, quindi il punteggio
+      console.log("Hai ottenuto: ", punteggio, "punti");
+      alert("Hai ottenuto: " + punteggio + "punti");
+      break;
+    } else {
+      arrayNumeriUser.push(numeriUser);
+      punteggio += 1;
+    }
+  }
 
 } else {
-  //in tutti gli altri casi
+  difficolta = sceltaDifficolta();
 }
 
 console.log("I numeri che l'utente ha inserito sono: ", arrayNumeriUser);
-
-
-
-
 
 /*******************FUNZIONI PER L'OUTPUT*******************************/
 
