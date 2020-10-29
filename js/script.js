@@ -2,12 +2,7 @@
 In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100. L’utente non può inserire più volte lo stesso numero.
 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
-BONUS: (da fare solo se funziona tutto il resto)
-all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
-con difficoltà 0 => tra 1 e 100,
-con difficoltà 1 =>  tra 1 e 80,
-con difficoltà 2 => tra 1 e 50*/
+Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.*/
 
 //dichiaro le variabili
 var arrayNumeri16 = []; //lista delle bombe
@@ -19,7 +14,7 @@ var punteggio = arrayNumeriUser.length; //tentativi che l'utente ha effettuato
 //genero i 16 numeri random unici da 1 a 100
 while (arrayNumeri16.length < array16) {
   var numeroComputer = numeroRangomGen(1, 100);
-
+  //unicità numeri
   if (! arrayNumeri16.includes(numeroComputer)){
     arrayNumeri16.push(numeroComputer);
   }
@@ -28,7 +23,7 @@ while (arrayNumeri16.length < array16) {
 console.log(arrayNumeri16);
 
 //l'untente inserisce un numero alla volta (da 1 a 100) finchè non perde. I numeri inseriti non possono ripetersi
-//84 sono i numeri non ancora scelti, in questo caso l'utente indovina gli 84 numeri vince la partita
+//84 sono i numeri non ancora scelti, in questo caso se l'utente indovina gli 84 numeri vince la partita
 for (var i = 0; arrayNumeriUser.length < 84; i++) {
   numeriUser = parseInt(prompt("Inserisci un numero"));
   //il numero inserito non può ripetersi, non può essere minore di 1 o maggiore di 100
@@ -37,21 +32,25 @@ for (var i = 0; arrayNumeriUser.length < 84; i++) {
     numeriUser = parseInt(prompt("Inserisci un numero"));
   }
   arrayNumeriUser.push(numeriUser);
+  //incrementa la lista dei numeri inseriti dall'utente di uno ogni volta che inserisce uno degli 84 numeri non scelti per il computer
+  punteggio += 1;
 
   console.log("I numeri che l'utente ha inserito sono: ", arrayNumeriUser);
     //chi ha vinto?
   if (arrayNumeri16.includes(numeriUser)) {
     console.log("Hai preso una bomba, hai perso!");
     alert("Hai preso una bomba, hai perso!");
-    //mostra all'utente i tentativi che ha effettuato
+    //tolgo dalla lista dei numeri utente il numero corrispodendente alla bomba
+    punteggio -= 1;
+    //mostra all'utente i tentativi che ha effettuato, quindi il punteggio
     console.log("Hai ottenuto: ", punteggio, "punti");
+    alert("Hai ottenuto: " + punteggio + "punti");
     break;
   } else if (! arrayNumeri16.includes(numeroComputer)) {
     numeriUser = parseInt(prompt("Inserisci un numero"));
   }
 }
 
-//mostare il punteggio
 
 
 /*******************FUNZIONI PER L'OUTPUT*******************************/
